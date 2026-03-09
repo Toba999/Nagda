@@ -46,13 +46,13 @@ places = "3.5.0"
 firebase = "34.10.0"
 legacySupportV4 = "1.0.0"
 fragmentKtx = "1.8.9"
+firebaseFirestoreKtx = "26.1.1"
 
 [libraries]
 androidx-biometric = { module = "androidx.biometric:biometric", version.ref = "biometric" }
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
 b-sahana-horizontalcalendar = { module = "io.github.b-sahana:horizontalcalendar", version.ref = "horizontalcalendarVersion" }
 firebase-storage = { module = "com.google.firebase:firebase-storage", version.ref = "firebaseStorage" }
-horizontalcalendar = { module = "devs.mulham.horizontalcalendar:horizontalcalendar", version.ref = "horizontalcalendar" }
 junit = { group = "junit", name = "junit", version.ref = "junit" }
 androidx-junit = { group = "androidx.test.ext", name = "junit", version.ref = "junitVersion" }
 androidx-espresso-core = { group = "androidx.test.espresso", name = "espresso-core", version.ref = "espressoCore" }
@@ -88,11 +88,10 @@ hilt-navigation-fragment = { module = "androidx.hilt:hilt-navigation-fragment", 
 
 # Firebase
 firebase-bom = { module = "com.google.firebase:firebase-bom", version.ref = "firebase" }
-firebase-messaging-ktx = { module = "com.google.firebase:firebase-messaging-ktx" }
 firebase-database-ktx = { module = "com.google.firebase:firebase-database" }
-firebase-analytics-ktx = { module = "com.google.firebase:firebase-analytics-ktx" }
-firebase-crashlytics-ktx = { module = "com.google.firebase:firebase-crashlytics-ktx" }
-firebase-firestore-ktx = { module = "com.google.firebase:firebase-firestore-ktx" } # Add this line
+firebase-analytics-ktx = { module = "com.google.firebase:firebase-analytics" }
+firebase-crashlytics-ktx = { module = "com.google.firebase:firebase-crashlytics" }
+firebase-firestore-ktx = { module = "com.google.firebase:firebase-firestore" }
 
 
 androidx-navigation-fragment-ktx = { module = "androidx.navigation:navigation-fragment-ktx", version.ref = "androidNavigation" }
@@ -110,6 +109,3 @@ navigation-safeargs = { id = "androidx.navigation.safeargs.kotlin", version.ref 
 kotlin-serialization = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "kotlin" }
 firebase-crashlitycs = { id = "com.google.firebase.crashlytics", version.ref = "firebaseCrashlyticsGradle" }
 googleServices = { id = "com.google.gms.google-services", version.ref = "googleServices"}
-
-
-

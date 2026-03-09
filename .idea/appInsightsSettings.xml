@@ -22,10 +22,10 @@
             <InsightsFilterSettings>
               <option name="connection">
                 <ConnectionSetting>
-                  <option name="appId" value="PLACEHOLDER" />
-                  <option name="mobileSdkAppId" value="" />
-                  <option name="projectId" value="" />
-                  <option name="projectNumber" value="" />
+                  <option name="appId" value="com.dev.nagda" />
+                  <option name="mobileSdkAppId" value="1:984831874119:android:7df23a3ce0c1179c170d62" />
+                  <option name="projectId" value="nagda-f4ec1" />
+                  <option name="projectNumber" value="984831874119" />
                 </ConnectionSetting>
               </option>
               <option name="signal" value="SIGNAL_UNSPECIFIED" />
