@@ -112,7 +112,7 @@ dependencies {
     //shimmer
     implementation(libs.shimmer)
     implementation (libs.b.sahana.horizontalcalendar)
-
+    implementation(libs.lottie)
 
     //coil (Image loading for Android backed by Kotlin Coroutines)
     implementation(libs.coil)
