@@ -114,7 +114,7 @@ class LoginFragment : Fragment() {
             .setLaunchSingleTop(true)
             .build()
 
-        findNavController().navigate(R.id.containerFragment, null, navOptions)
+//        findNavController().navigate(R.id.containerFragment, null, navOptions)
     }
 
     private fun showSnackBar( message: String, isError: Boolean) {

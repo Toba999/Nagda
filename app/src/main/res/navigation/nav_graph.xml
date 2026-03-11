@@ -11,12 +11,18 @@
         android:label="Main Fragment"/>
 
     <fragment
+        android:id="@+id/OnboardingFragment"
+        android:name="com.dev.nagda.features.onboarding.view.OnboardingFragment"
+        android:label="Onboarding Fragment"/>
+
+    <fragment
         android:id="@+id/LoginFragment"
         android:name="com.dev.nagda.features.login.presentation.view.LoginFragment"
         android:label="User Detail Fragment"/>
-    <fragment
-        android:id="@+id/containerFragment"
-        android:name="com.dev.dwamy.features.bottomContainerFragment.presentation.view.ContainerFragment"
-        android:label="ContainerFragment" />
+
+<!--    <fragment-->
+<!--        android:id="@+id/containerFragment"-->
+<!--        android:name="com.dev.dwamy.features.bottomContainerFragment.presentation.view.ContainerFragment"-->
+<!--        android:label="ContainerFragment" />-->
 
 </navigation>
