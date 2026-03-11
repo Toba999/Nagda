@@ -9,4 +9,14 @@
     <string name="email">البريد الالكتروني</string>
     <string name="welcome_text">اهلا بك في برنامج نجدة</string>
     <string name="no_account_text">ليس لديك حساب</string>
+    <string name="Home">الرئيسية</string>
+    <string name="requests">البلاغات</string>
+    <string name="profile">الملف الشخصي</string>
+    <string name="register">تسجيل حساب</string>
+    <string name="name">الاسم</string>
+    <string name="phone">رقم الهاتف</string>
+    <string name="Address">عنوان المنزل</string>
+    <string name="family_size">عدد افراد العائلة</string>
+    <string name="notes_optional">ملاحظات اضافية (اختياري)</string>
+    <string name="register_here">سجل هنا</string>
 </resources>

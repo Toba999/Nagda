@@ -20,9 +20,14 @@
         android:name="com.dev.nagda.features.login.presentation.view.LoginFragment"
         android:label="User Detail Fragment"/>
 
-<!--    <fragment-->
-<!--        android:id="@+id/containerFragment"-->
-<!--        android:name="com.dev.dwamy.features.bottomContainerFragment.presentation.view.ContainerFragment"-->
-<!--        android:label="ContainerFragment" />-->
+    <fragment
+        android:id="@+id/RegisterFragment"
+        android:name="com.dev.nagda.features.register.view.RegisterFragment"
+        android:label="User Detail Fragment"/>
+
+    <fragment
+        android:id="@+id/containerFragment"
+        android:name="com.dev.nagda.features.bottomContainerFragment.presentation.view.ContainerFragment"
+        android:label="ContainerFragment" />
 
 </navigation>

@@ -14,6 +14,7 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.NavOptions
 import androidx.navigation.fragment.findNavController
+import androidx.navigation.navOptions
 import com.dev.nagda.features.login.domain.model.BiometricLoginState
 import com.dev.nagda.features.login.domain.model.LoginState
 import com.dev.nagda.features.login.presentation.viewModel.LoginViewModel
@@ -35,7 +36,7 @@ class LoginFragment : Fragment() {
     private var _binding: FragmentLoginBinding? = null
     private val binding get() = _binding!!
     @Inject
-    lateinit var sharedPrefManager: SharedPrefManager  // Inject SharedPreferences manager
+    lateinit var sharedPrefManager: SharedPrefManager
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -77,6 +78,10 @@ class LoginFragment : Fragment() {
                 }
             }
         }
+        binding.registerBtn.setOnClickListener{
+            findNavController().navigate(R.id.RegisterFragment, null)
+        }
+
         binding.loginButton.setOnClickListener{
             val email = binding.emailEt.text.toString().trim()
             val password = binding.passwordEt.text.toString().trim()
@@ -114,7 +119,7 @@ class LoginFragment : Fragment() {
             .setLaunchSingleTop(true)
             .build()
 
-//        findNavController().navigate(R.id.containerFragment, null, navOptions)
+        findNavController().navigate(R.id.containerFragment, null, navOptions)
     }
 
     private fun showSnackBar( message: String, isError: Boolean) {
