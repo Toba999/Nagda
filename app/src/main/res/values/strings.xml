@@ -2,4 +2,10 @@
     <string name="app_name">Nagda</string>
     <string name="skip">تخطي</string>
     <string name="next">التالي</string>
+    <string name="login">تسجيل الدخول</string>
+    <string name="biometric_login">تسجيل الدخول باستخدام البصمة</string>
+    <string name="password">كلمة السر</string>
+    <string name="email">البريد الالكتروني</string>
+    <string name="welcome_text">اهلا بك في برنامج نجدة</string>
+    <string name="no_account_text">ليس لديك حساب</string>
 </resources>

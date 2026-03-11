@@ -12,8 +12,10 @@ import androidx.viewpager2.widget.ViewPager2
 import com.dev.nagda.R
 import com.dev.nagda.databinding.FragmentOnboardingBinding
 import com.dev.nagda.utils.SharedPrefManager
+import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
 
+@AndroidEntryPoint
 class OnboardingFragment : Fragment() {
 
     private var _binding: FragmentOnboardingBinding? = null
@@ -40,6 +42,9 @@ class OnboardingFragment : Fragment() {
         binding.viewPager.adapter = OnboardingPagerAdapter(screens)
         binding.viewPager.layoutDirection = View.LAYOUT_DIRECTION_RTL
         binding.viewPager.isUserInputEnabled = false
+        binding.btnSkip.setOnClickListener {
+            finishOnboarding()
+        }
 
         binding.viewPager.post {
             setupDots(0)

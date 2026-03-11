@@ -3,6 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical"
     android:gravity="center"
     android:background="@color/white">
@@ -10,55 +11,62 @@
 
     <ImageView
         android:id="@+id/appLogo"
-        android:layout_width="110dp"
-        android:layout_height="110dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="16dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/titleText"
+        android:src="@drawable/ic_logo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        android:layout_marginEnd="20dp"
-        android:textColor="@color/black"
-        android:textSize="28sp"
-        android:textStyle="bold"
+        android:layout_marginEnd="16dp"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/appLogo" />
+        app:layout_constraintTop_toTopOf="parent" />
+
 
     <TextView
         android:id="@+id/headerText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="44dp"
         android:layout_marginEnd="20dp"
-        android:text="تسجيل الدخول"
-        android:textColor="@color/black"
+        android:text="@string/login"
+        android:fontFamily="@font/notokufi_arabic_semibold"
+        android:textColor="@color/primary"
         android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/titleText" />
+        app:layout_constraintTop_toBottomOf="@+id/appLogo" />
+
+    <TextView
+        android:id="@+id/subHeaderText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="20dp"
+        android:text="@string/welcome_text"
+        android:fontFamily="@font/notokufi_arabic_medium"
+        android:textColor="@color/primaryText"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/headerText" />
 
     <com.google.android.material.textfield.TextInputEditText
         android:id="@+id/emailEt"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="البريد الالكتروني"
+        android:hint="@string/email"
+        android:fontFamily="@font/notokufi_arabic_regular"
         android:inputType="textEmailAddress"
         android:padding="12dp"
         android:background="@drawable/et_bg"
         android:layout_marginTop="32dp"
         android:layout_marginHorizontal="16dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/headerText" />
+        app:layout_constraintTop_toBottomOf="@+id/subHeaderText" />
 
     <com.google.android.material.textfield.TextInputEditText
         android:id="@+id/passwordEt"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="كلمة السر"
+        android:hint="@string/password"
+        android:fontFamily="@font/notokufi_arabic_regular"
         android:gravity="end"
         android:inputType="textPassword"
         android:padding="12dp"
@@ -72,29 +80,76 @@
         android:id="@+id/loginButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="تسجيل الدخول"
+        android:text="@string/login"
+        android:fontFamily="@font/notokufi_arabic_medium"
         android:textSize="16sp"
         android:textColor="@color/white"
         android:padding="12dp"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="36dp"
         android:layout_marginHorizontal="16dp"
         app:cornerRadius="10dp"
         app:backgroundTint="@color/primary"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/passwordEt"/>
 
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/registerContainer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:layout_marginHorizontal="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/loginButton">
+
+        <TextView
+            android:id="@+id/registerText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/no_account_text"
+            android:fontFamily="@font/notokufi_arabic_medium"
+            android:textColor="@color/black"
+            android:textSize="16sp"
+            android:visibility="gone"
+            tools:visibility="visible"
+            android:layout_marginStart="58dp"
+            android:layout_marginHorizontal="16dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/registerBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="سجل هنا"
+            android:fontFamily="@font/notokufi_arabic_medium"
+            android:textColor="@color/primary"
+            android:textSize="16sp"
+            android:visibility="gone"
+            tools:visibility="visible"
+            android:layout_marginEnd="6dp"
+            android:layout_marginHorizontal="16dp"
+            app:layout_constraintEnd_toStartOf="@+id/registerText"
+            app:layout_constraintTop_toTopOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
     <TextView
         android:id="@+id/fingerPrintText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        android:text="تسجيل الدخول باستخدام البصمة"
+        android:text="@string/biometric_login"
+        android:fontFamily="@font/notokufi_arabic_medium"
         android:textColor="@color/black"
         android:textSize="16sp"
         android:visibility="gone"
+        tools:visibility="visible"
+        android:layout_marginHorizontal="16dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/loginButton" />
+        app:layout_constraintTop_toBottomOf="@+id/registerContainer" />
 
     <androidx.cardview.widget.CardView
         android:id="@+id/fingerprintCard"
@@ -103,6 +158,7 @@
         android:layout_marginTop="20dp"
         app:cardCornerRadius="12dp"
         android:visibility="gone"
+        tools:visibility="visible"
         android:backgroundTint="@color/primary"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
