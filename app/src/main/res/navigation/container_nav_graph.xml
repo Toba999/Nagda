@@ -5,25 +5,11 @@
     android:id="@+id/container_nav_graph"
     app:startDestination="@id/homeFragment">
 
-<!--    <fragment-->
-<!--        android:id="@+id/excuseFragment"-->
-<!--        android:name="com.dev.dwamy.features.excuse.presentation.view.ExcuseFragment"-->
-<!--        android:label="fragment_excuse"-->
-<!--        tools:layout="@layout/fragment_excuse" >-->
-<!--        <action-->
-<!--            android:id="@+id/action_excuseFragment_to_successDialogFragment"-->
-<!--            app:destination="@id/successDialogFragment" />-->
-<!--    </fragment>-->
-<!--    <fragment-->
-<!--        android:id="@+id/profileFragment"-->
-<!--        android:name="com.dev.dwamy.features.profile.presentation.view.ProfileFragment"-->
-<!--        android:label="fragment_profile"-->
-<!--        tools:layout="@layout/fragment_profile" />-->
-<!--    <fragment-->
-<!--        android:id="@+id/homeFragment"-->
-<!--        android:name="com.dev.dwamy.features.home.presentation.view.HomeFragment"-->
-<!--        android:label="fragment_home"-->
-<!--        tools:layout="@layout/fragment_home" >-->
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.dev.nagda.features.home.view.HomeFragment"
+        android:label="fragment_home"
+        tools:layout="@layout/fragment_home" >
 <!--        <action-->
 <!--            android:id="@+id/action_homeFragment_to_vacationRequestFragment"-->
 <!--            app:destination="@id/vacationRequestFragment" />-->
@@ -33,34 +19,7 @@
 <!--        <action-->
 <!--            android:id="@+id/action_homeFragment_to_successDialogFragment"-->
 <!--            app:destination="@id/successDialogFragment" />-->
-<!--    </fragment>-->
-<!--    <fragment-->
-<!--        android:id="@+id/vacationFragment"-->
-<!--        android:name="com.dev.dwamy.features.vacation.presentation.view.VacationFragment"-->
-<!--        android:label="fragment_vacation"-->
-<!--        tools:layout="@layout/fragment_vacation" >-->
-<!--        <action-->
-<!--            android:id="@+id/action_vacationFragment_to_successDialogFragment"-->
-<!--            app:destination="@id/successDialogFragment" />-->
-<!--    </fragment>-->
-<!--    <fragment-->
-<!--        android:id="@+id/excuseRequestFragment"-->
-<!--        android:name="com.dev.dwamy.features.excuseRequest.presentation.view.ExcuseRequestFragment"-->
-<!--        android:label="fragment_excuse_request"-->
-<!--        tools:layout="@layout/fragment_excuse_request" >-->
-<!--        <action-->
-<!--            android:id="@+id/action_excuseRequestFragment_to_successDialogFragment"-->
-<!--            app:destination="@id/successDialogFragment" />-->
-<!--    </fragment>-->
-<!--    <fragment-->
-<!--        android:id="@+id/vacationRequestFragment"-->
-<!--        android:name="com.dev.dwamy.features.vacationRequest.presentation.view.VacationRequestFragment"-->
-<!--        android:label="fragment_vacation_request"-->
-<!--        tools:layout="@layout/fragment_vacation_request" >-->
-<!--        <action-->
-<!--            android:id="@+id/action_vacationRequestFragment_to_successDialogFragment"-->
-<!--            app:destination="@id/successDialogFragment" />-->
-<!--    </fragment>-->
+    </fragment>
 
 <!--    <dialog-->
 <!--        android:id="@+id/successDialogFragment"-->
