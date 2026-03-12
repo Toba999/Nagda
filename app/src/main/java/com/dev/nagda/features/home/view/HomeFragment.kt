@@ -1,5 +1,7 @@
 package com.dev.nagda.features.home.view
 
+import android.content.Intent
+import android.net.Uri
 import android.os.Build
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -50,6 +52,10 @@ class HomeFragment : Fragment() {
     @RequiresApi(Build.VERSION_CODES.P)
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        binding.btnCall.setOnClickListener {
+            val intent = Intent(Intent.ACTION_DIAL, Uri.parse("tel:998"))
+            startActivity(intent)
+        }
         requireActivity().window.statusBarColor =
             ContextCompat.getColor(requireContext(), R.color.screenBackground)
         viewLifecycleOwner.lifecycleScope.launch {
@@ -62,8 +68,6 @@ class HomeFragment : Fragment() {
                 }
             }
         }
-
-
     }
 
 
