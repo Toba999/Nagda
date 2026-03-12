@@ -21,11 +21,6 @@ object AppModule {
 
     @Provides
     @Singleton
-    fun provideFireStorage(): FirebaseStorage = FirebaseStorage.getInstance()
-
-
-    @Provides
-    @Singleton
     fun provideSharedPrefManager(@ApplicationContext context: Context): SharedPrefManager =
         SharedPrefManager(context)
 
@@ -33,11 +28,8 @@ object AppModule {
     @Singleton
     fun provideFireBaseRepo(
         firestore: FirebaseFirestore,
-        firebaseStorage: FirebaseStorage,
-        sharedPrefManager: SharedPrefManager,
-        @ApplicationContext context: Context
     ): FireBaseRepo {
-        return FireBaseRepoImpl(firestore, firebaseStorage, sharedPrefManager, context)
+        return FireBaseRepoImpl(firestore)
     }
 
     @Provides

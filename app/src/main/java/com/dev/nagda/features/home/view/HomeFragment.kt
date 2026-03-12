@@ -38,8 +38,6 @@ class HomeFragment : Fragment() {
 
     private var _binding: FragmentHomeBinding? = null
     private val binding get() = _binding!!
-    @Inject
-    lateinit var sharedPrefManager: SharedPrefManager
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -52,7 +50,8 @@ class HomeFragment : Fragment() {
     @RequiresApi(Build.VERSION_CODES.P)
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
+        requireActivity().window.statusBarColor =
+            ContextCompat.getColor(requireContext(), R.color.screenBackground)
         viewLifecycleOwner.lifecycleScope.launch {
             viewModel.homeState.collectLatest { state ->
                 when (state) {
@@ -87,6 +86,8 @@ class HomeFragment : Fragment() {
 
     override fun onDestroyView() {
         super.onDestroyView()
+        requireActivity().window.statusBarColor =
+            ContextCompat.getColor(requireContext(), R.color.white)
         _binding = null
     }
 }

@@ -1,10 +1,12 @@
 package com.dev.nagda.features.login.domain.model
 
+import com.dev.nagda.data.model.UserModel
+
 
 sealed class LoginState {
     object Idle : LoginState()
     object Loading : LoginState()
-    data class Success(val user: String?) : LoginState()
+    data class Success(val user: UserModel?) : LoginState()
     data class Error(val message: String) : LoginState()
 }
 

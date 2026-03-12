@@ -1,50 +1,59 @@
 package com.dev.nagda.features.login.presentation.viewModel
 
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
 import com.dev.nagda.domain.repo.FireBaseRepo
 import com.dev.nagda.features.login.domain.model.BiometricLoginState
 import com.dev.nagda.features.login.domain.model.LoginState
+import com.dev.nagda.utils.SharedPrefManager
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
+import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
-class LoginViewModel @Inject constructor(private val firebaseRepository: FireBaseRepo) : ViewModel() {
+class LoginViewModel @Inject constructor(
+    private val firebaseRepository: FireBaseRepo,
+    private val sharedPrefManager: SharedPrefManager
+) : ViewModel() {
+
     private val _loginState = MutableStateFlow<LoginState>(LoginState.Idle)
     val loginState: StateFlow<LoginState> = _loginState
-    private val _biometricLoginState = MutableStateFlow<BiometricLoginState>(BiometricLoginState.Idle)
-    val biometricLoginState: StateFlow<BiometricLoginState> = _biometricLoginState
 
+    fun login(phone: String, password: String) {
+        viewModelScope.launch {
+            _loginState.value = LoginState.Loading
+            firebaseRepository.login(phone, password)
+                .onSuccess {
+                    sharedPrefManager.putString(KEY_PHONE, phone)
+                    sharedPrefManager.putString(KEY_PASSWORD, password)
+                    sharedPrefManager.putBoolean(KEY_BIOMETRIC_ENABLED, true)
+                    _loginState.value = LoginState.Success(it)
+                }
+                .onFailure {
+                    _loginState.value = LoginState.Error(
+                        it.message ?: "حدث خطأ أثناء تسجيل الدخول")
+                }
+        }
+    }
 
-//    fun login(email: String, password: String) {
-//        viewModelScope.launch {
-//            _loginState.value = LoginState.Loading
-//            try {
-//                val user = firebaseRepository.loginEmployee(email, password)
-//                if (user != null) {
-//                    _loginState.value = LoginState.Success(user)
-//                } else {
-//                    _loginState.value = LoginState.Error("البريد الاكتروني او كلمة المرور غير صحيحة")
-//                }
-//            } catch (e: Exception) {
-//                _loginState.value = LoginState.Error(e.message ?: "حدث خطأ أثناء تسجيل الدخول")
-//            }
-//        }
-//    }
-//    fun checkForBiometricLogin(employeeId: String) {
-//        viewModelScope.launch {
-//            _biometricLoginState.value = BiometricLoginState.Loading
-//            try {
-//                val isExist = firebaseRepository.isEmployeeExist(employeeId)
-//                if (isExist) {
-//                    _biometricLoginState.value = BiometricLoginState.Success("تم تسجيل الدخول بنجاح")
-//                } else {
-//                    _biometricLoginState.value = BiometricLoginState.Error("تم مسح بيانات الموظف")
-//                }
-//            } catch (e: Exception) {
-//                _biometricLoginState.value = BiometricLoginState.Error(e.message ?: "حدث خطأ أثناء تسجيل الدخول")
-//            }
-//        }
-//    }
+    fun loginWithBiometric() {
+        val phone    = sharedPrefManager.getString(KEY_PHONE)
+        val password = sharedPrefManager.getString(KEY_PASSWORD)
+        if (phone.isBlank() || password.isBlank()) {
+            _loginState.value = LoginState.Error("لا توجد بيانات محفوظة")
+            return
+        }
+        login(phone, password)
+    }
+
+    fun isBiometricEnabled(): Boolean =
+        sharedPrefManager.getBoolean(KEY_BIOMETRIC_ENABLED, false)
+
+    companion object {
+        private const val KEY_PHONE             = "login_phone"
+        private const val KEY_PASSWORD          = "login_password"
+        private const val KEY_BIOMETRIC_ENABLED = "biometric_enabled"
+    }
 }
