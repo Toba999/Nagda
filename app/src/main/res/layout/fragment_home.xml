@@ -34,7 +34,7 @@
         app:layout_constraintTop_toBottomOf="@id/tvTitle" />
 
     <ImageView
-        android:id="@+id/tvBtnCallImg"
+        android:id="@+id/tvBtnSosImg"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="52dp"
@@ -46,10 +46,10 @@
         app:layout_constraintStart_toStartOf="parent"
         android:translationZ="2dp"
         app:layout_constraintTop_toTopOf="@+id/btnSOS"
-        app:layout_constraintBottom_toTopOf="@id/tvBtnCallText"/>
+        app:layout_constraintBottom_toTopOf="@id/tvBtnSosText"/>
 
     <TextView
-        android:id="@+id/tvBtnCallText"
+        android:id="@+id/tvBtnSosText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="90dp"
@@ -85,8 +85,6 @@
         android:layout_marginHorizontal="24dp"
         android:layout_marginTop="32dp"
         android:backgroundTint="@color/color_call"
-        android:drawableStart="@drawable/ic_call"
-        android:drawablePadding="8dp"
         android:fontFamily="@font/notokufi_arabic_medium"
         android:text="@string/call_police"
         android:textColor="@color/white"
@@ -96,6 +94,16 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/btnSOS" />
 
+    <ImageView
+        android:id="@+id/tvBtnCallImg"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_call"
+        android:translationZ="2dp"
+        android:layout_marginStart="60dp"
+        app:layout_constraintStart_toStartOf="@+id/btnCall"
+        app:layout_constraintTop_toTopOf="@+id/btnCall"
+        app:layout_constraintBottom_toBottomOf="@id/btnCall"/>
 
     <Button
         android:id="@+id/btnSafety"
@@ -115,7 +123,16 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/btnCall" />
-
+    <ImageView
+        android:id="@+id/tvBtnSafetyImg"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_safety"
+        android:translationZ="2dp"
+        android:layout_marginStart="92dp"
+        app:layout_constraintStart_toStartOf="@+id/btnSafety"
+        app:layout_constraintTop_toTopOf="@+id/btnSafety"
+        app:layout_constraintBottom_toBottomOf="@id/btnSafety"/>
     <include
         android:id="@+id/loadingView"
         layout="@layout/loading_view"
