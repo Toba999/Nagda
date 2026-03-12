@@ -19,4 +19,8 @@
     <string name="family_size">عدد افراد العائلة</string>
     <string name="notes_optional">ملاحظات اضافية (اختياري)</string>
     <string name="register_here">سجل هنا</string>
+    <string name="main">الرئيسية</string>
+    <string name="call_when_emergency">⚠️ اضغط في حالة الطوارئ فقط</string>
+    <string name="call_police">اتصال بالدفاع المدني (998)</string>
+    <string name="safety_measurement">ارشادات السلامة</string>
 </resources>

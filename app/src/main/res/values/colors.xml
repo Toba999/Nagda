@@ -5,6 +5,7 @@
     <color name="white">#FFFFFFFF</color>
     <color name="red">#FF0000</color>
     <color name="primary">#E53935</color>
+    <color name="color_call">#1F3A8A</color>
     <color name="secondaryText">#999999</color>
     <color name="green">#23EF00</color>
     <color name="primaryText">#1A1A1A</color>
