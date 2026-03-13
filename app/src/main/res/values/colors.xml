@@ -6,6 +6,8 @@
     <color name="red">#FF0000</color>
     <color name="primary">#E53935</color>
     <color name="color_call">#1F3A8A</color>
+    <color name="color_call_btn_bg">#364D96</color>
+    <color name="fire_banner">#F64400</color>
     <color name="secondaryText">#999999</color>
     <color name="green">#23EF00</color>
     <color name="strokeColor">#E0E0E0</color>

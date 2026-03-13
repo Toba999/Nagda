@@ -17,6 +17,7 @@ import androidx.lifecycle.lifecycleScope
 import androidx.navigation.NavOptions
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.navOptions
+import com.dev.nagda.MainActivity
 import com.dev.nagda.features.login.domain.model.BiometricLoginState
 import com.dev.nagda.features.login.domain.model.LoginState
 import com.dev.nagda.features.login.presentation.viewModel.LoginViewModel
@@ -56,8 +57,10 @@ class HomeFragment : Fragment() {
             val intent = Intent(Intent.ACTION_DIAL, Uri.parse("tel:998"))
             startActivity(intent)
         }
-        requireActivity().window.statusBarColor =
-            ContextCompat.getColor(requireContext(), R.color.screenBackground)
+        binding.btnSafety.setOnClickListener {
+            findNavController().navigate(R.id.safetyGuideFragment)
+        }
+        (requireActivity() as MainActivity).setStausBarColor(R.color.screenBackground)
         viewLifecycleOwner.lifecycleScope.launch {
             viewModel.homeState.collectLatest { state ->
                 when (state) {

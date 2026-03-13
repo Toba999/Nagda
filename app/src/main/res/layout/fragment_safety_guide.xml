@@ -1,0 +1,250 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:background="@color/screenBackground"
+    android:layoutDirection="rtl">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="0dp"
+            android:layout_height="56dp"
+            android:background="@color/screenBackground"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:fontFamily="@font/notokufi_arabic_semibold"
+                android:text="@string/safety_guide_title"
+                android:textColor="@color/primaryText"
+                android:textSize="18sp" />
+
+            <ImageView
+                android:id="@+id/ivBack"
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:layout_gravity="start|center_vertical"
+                android:padding="4dp"
+                android:src="@drawable/ic_arrow_back_primary" />
+
+        </androidx.appcompat.widget.Toolbar>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/bannerFire"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/fire_banner"
+            android:layout_marginTop="24dp"
+            android:layout_marginHorizontal="20dp"
+            app:cardCornerRadius="12dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/toolbar">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="16dp"
+                android:layout_marginTop="4dp"
+                android:padding="16dp">
+
+                <TextView
+                    android:id="@+id/tvBannerTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/notokufi_arabic_semibold"
+                    android:text="@string/in_case_of_fire"
+                    android:textColor="@color/white"
+                    android:textSize="20sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/tvBannerSubtitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:fontFamily="@font/notokufi_arabic_regular"
+                    android:text="@string/follow_safety_guide"
+                    android:textColor="@color/white"
+                    android:textSize="13sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tvBannerTitle" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </androidx.cardview.widget.CardView>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvTips"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="16dp"
+            android:layout_marginTop="8dp"
+            android:background="@color/screenBackground"
+            android:nestedScrollingEnabled="false"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/bannerFire"
+            tools:listitem="@layout/item_safety_tip"/>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/bannerCall"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="16dp"
+            android:layout_marginTop="12dp"
+            android:layout_marginBottom="24dp"
+            android:backgroundTint="@color/color_call"
+            android:padding="16dp"
+            app:cardCornerRadius="12dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/rvTips">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/emergencyCard"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="12dp"
+                android:layout_marginBottom="24dp">
+
+                <TextView
+                    android:id="@+id/tvEmergencyTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/notokufi_arabic_semibold"
+                    android:text="@string/emergency_numbers"
+                    android:textColor="#FFFFFF"
+                    android:textSize="16sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnCivilDefense"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="16dp"
+                    android:layout_marginTop="12dp"
+                    android:backgroundTint="@color/color_call_btn_bg"
+                    android:drawablePadding="8dp"
+                    app:cornerRadius="8dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tvEmergencyTitle" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="50dp"
+                    android:fontFamily="@font/notokufi_arabic_medium"
+                    android:text="@string/civil_defense"
+                    android:textColor="@color/white"
+                    android:textSize="14sp"
+                    app:layout_constraintBottom_toBottomOf="@id/btnCivilDefense"
+                    app:layout_constraintStart_toStartOf="@+id/btnCivilDefense"
+                    app:layout_constraintTop_toTopOf="@+id/btnCivilDefense" />
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginBottom="4dp"
+                    android:src="@drawable/ic_call"
+                    android:translationZ="2dp"
+                    app:layout_constraintBottom_toBottomOf="@id/btnCivilDefense"
+                    app:layout_constraintStart_toStartOf="@+id/btnCivilDefense"
+                    app:layout_constraintTop_toTopOf="@+id/btnCivilDefense" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnAmbulance"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="16dp"
+                    android:layout_marginTop="12dp"
+                    android:backgroundTint="@color/color_call_btn_bg"
+                    android:drawablePadding="8dp"
+                    app:cornerRadius="8dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/btnCivilDefense" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="50dp"
+                    android:fontFamily="@font/notokufi_arabic_medium"
+                    android:text="@string/ambulance_number"
+                    android:textColor="@color/white"
+                    android:textSize="14sp"
+                    app:layout_constraintBottom_toBottomOf="@id/btnAmbulance"
+                    app:layout_constraintStart_toStartOf="@+id/btnAmbulance"
+                    app:layout_constraintTop_toTopOf="@+id/btnAmbulance" />
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginBottom="4dp"
+                    android:src="@drawable/ic_call"
+                    android:translationZ="2dp"
+                    app:layout_constraintBottom_toBottomOf="@id/btnAmbulance"
+                    app:layout_constraintStart_toStartOf="@+id/btnAmbulance"
+                    app:layout_constraintTop_toTopOf="@+id/btnAmbulance" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnPolice"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="16dp"
+                    android:layout_marginVertical="12dp"
+                    android:backgroundTint="@color/color_call_btn_bg"
+                    android:drawablePadding="8dp"
+
+                    app:cornerRadius="8dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/btnAmbulance" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="50dp"
+                    android:fontFamily="@font/notokufi_arabic_medium"
+                    android:text="@string/police_number"
+                    android:textColor="@color/white"
+                    android:textSize="14sp"
+                    app:layout_constraintBottom_toBottomOf="@id/btnPolice"
+                    app:layout_constraintStart_toStartOf="@+id/btnPolice"
+                    app:layout_constraintTop_toTopOf="@+id/btnPolice" />
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginBottom="4dp"
+                    android:src="@drawable/ic_call"
+                    android:translationZ="2dp"
+                    app:layout_constraintBottom_toBottomOf="@id/btnPolice"
+                    app:layout_constraintStart_toStartOf="@+id/btnPolice"
+                    app:layout_constraintTop_toTopOf="@+id/btnPolice" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.cardview.widget.CardView>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.core.widget.NestedScrollView>

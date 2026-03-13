@@ -9,19 +9,15 @@
         android:id="@+id/homeFragment"
         android:name="com.dev.nagda.features.home.view.HomeFragment"
         android:label="fragment_home"
-        tools:layout="@layout/fragment_home" >
-<!--        <action-->
-<!--            android:id="@+id/action_homeFragment_to_vacationRequestFragment"-->
-<!--            app:destination="@id/vacationRequestFragment" />-->
-<!--        <action-->
-<!--            android:id="@+id/action_homeFragment_to_excuseRequestFragment"-->
-<!--            app:destination="@id/excuseRequestFragment" />-->
-<!--        <action-->
-<!--            android:id="@+id/action_homeFragment_to_successDialogFragment"-->
-<!--            app:destination="@id/successDialogFragment" />-->
-    </fragment>
+        tools:layout="@layout/fragment_home" />
 
-<!--    <dialog-->
+    <fragment
+        android:id="@+id/safetyGuideFragment"
+        android:name="com.dev.nagda.features.safetyGuide.view.SafetyGuideFragment"
+        android:label="SafetyGuideFragment" />
+
+
+    <!--    <dialog-->
 <!--        android:id="@+id/successDialogFragment"-->
 <!--        android:name="com.dev.dwamy.features.dialogs.SuccessDialogFragment"-->
 <!--        android:label="Success Dialog"-->

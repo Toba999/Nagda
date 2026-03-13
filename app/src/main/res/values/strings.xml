@@ -23,4 +23,13 @@
     <string name="call_when_emergency">⚠️ اضغط في حالة الطوارئ فقط</string>
     <string name="call_police">اتصال بالدفاع المدني (998)</string>
     <string name="safety_measurement">ارشادات السلامة</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="safety_guide_title">ارشادات السلامة</string>
+    <string name="in_case_of_fire">في حالة الحريق</string>
+    <string name="follow_safety_guide">اتبع هذه الإرشادات لحماية نفسك وعائلتك</string>
+    <string name="emergency_numbers">ارقام الطوارئ</string>
+    <string name="police_number">الشرطة (999)</string>
+    <string name="ambulance_number">الاسعاف (997)</string>
+    <string name="civil_defense">الدفاع المدني (998)</string>
 </resources>

@@ -7,6 +7,8 @@ import android.os.Bundle
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.app.AppCompatDelegate
+import androidx.core.content.ContentProviderCompat.requireContext
+import androidx.core.content.ContextCompat
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.navigation.fragment.NavHostFragment
@@ -31,5 +33,10 @@ class MainActivity : AppCompatActivity() {
         config.setLocale(locale)
         context.createConfigurationContext(config)
         context.resources.updateConfiguration(config, context.resources.displayMetrics)
+    }
+
+    fun setStausBarColor(color: Int){
+        this.window.statusBarColor =
+            ContextCompat.getColor(this, color)
     }
 }

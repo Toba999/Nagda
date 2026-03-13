@@ -57,12 +57,12 @@ class ContainerFragment : Fragment() {
 
         navController.addOnDestinationChangedListener { _, destination, _ ->
             when (destination.id) {
-//                R.id.vacationRequestFragment, R.id.excuseRequestFragment, R.id.successDialogFragment-> {
-//                    binding.bottomNavView.visibility = View.GONE
-//                }
-//                else -> {
-//                    binding.bottomNavView.visibility = View.VISIBLE
-//                }
+                R.id.safetyGuideFragment-> {
+                    binding.bottomNavView.visibility = View.GONE
+                }
+                else -> {
+                    binding.bottomNavView.visibility = View.VISIBLE
+                }
             }
         }
 
