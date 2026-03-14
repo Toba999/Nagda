@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import android.widget.LinearLayout
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
+import androidx.navigation.NavOptions
 import androidx.navigation.fragment.findNavController
 import androidx.viewpager2.widget.ViewPager2
 import com.dev.nagda.R
@@ -69,7 +70,11 @@ class OnboardingFragment : Fragment() {
 
     private fun finishOnboarding() {
         sharedPrefManager.putBoolean("onboarding_done", true)
-        findNavController().navigate(R.id.LoginFragment)
+        val navOptions = NavOptions.Builder()
+            .setPopUpTo(R.id.OnboardingFragment, true)
+            .setLaunchSingleTop(true)
+            .build()
+        findNavController().navigate(R.id.LoginFragment, null, navOptions)
     }
 
     private fun setupDots(selected: Int) {

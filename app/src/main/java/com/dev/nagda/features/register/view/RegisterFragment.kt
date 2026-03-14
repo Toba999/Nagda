@@ -18,6 +18,7 @@ import com.google.android.material.snackbar.Snackbar
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
+import okhttp3.Address
 
 @AndroidEntryPoint
 class RegisterFragment : Fragment() {
@@ -48,16 +49,18 @@ class RegisterFragment : Fragment() {
         binding.registerButton.setOnClickListener {
             val fullName   = binding.etName.text.toString().trim()
             val phone      = binding.etPhone.text.toString().trim()
-            val nationalId = binding.etAddress.text.toString().trim()
+            val mail       = binding.etMail.text.toString().trim()
+            val address    = binding.etAddress.text.toString().trim()
             val familySize = binding.etFamilySize.text.toString().trim()
             val notes      = binding.etNotes.text.toString().trim()
             val password   = binding.etPassword.text.toString().trim()
 
-            if (validateInputs(fullName, phone, nationalId, familySize, password)) {
+            if (validateInputs(fullName, phone, mail, address, familySize, password)) {
                 viewModel.register(
                     fullName   = fullName,
                     phone      = phone,
-                    address = nationalId,
+                    mail       = mail,
+                    address    = address,
                     familySize = familySize.toInt(),
                     notes      = notes,
                     password   = password
@@ -69,18 +72,22 @@ class RegisterFragment : Fragment() {
     private fun validateInputs(
         fullName: String,
         phone: String,
-        nationalId: String,
+        mail: String,
+        address: String,
         familySize: String,
         password: String
     ): Boolean {
+        val emailRegex = "^[A-Za-z0-9+_.-]+@[A-Za-z0-9.-]+$".toRegex()
         return when {
-            fullName.isEmpty()   -> { showSnackBar("الاسم الكامل مطلوب", true); false }
-            phone.isEmpty()      -> { showSnackBar("رقم الهاتف مطلوب", true); false }
-            phone.length < 10    -> { showSnackBar("رقم الهاتف غير صحيح", true); false }
-            nationalId.isEmpty() -> { showSnackBar("رقم الهوية مطلوب", true); false }
-            familySize.isEmpty() -> { showSnackBar("عدد أفراد الأسرة مطلوب", true); false }
-            password.isEmpty()   -> { showSnackBar("كلمة المرور مطلوبة", true); false }
-            password.length < 6  -> { showSnackBar("كلمة المرور يجب أن تكون 6 أحرف على الأقل", true); false }
+            fullName.isEmpty()        -> { showSnackBar("الاسم الكامل مطلوب", true); false }
+            phone.isEmpty()           -> { showSnackBar("رقم الهاتف مطلوب", true); false }
+            phone.length < 10         -> { showSnackBar("رقم الهاتف غير صحيح", true); false }
+            mail.isEmpty()            -> { showSnackBar("البريد الإلكتروني مطلوب", true); false }
+            !mail.matches(emailRegex) -> { showSnackBar("البريد الإلكتروني غير صحيح", true); false }
+            address.isEmpty()         -> { showSnackBar("العنوان مطلوب", true); false }
+            familySize.isEmpty()      -> { showSnackBar("عدد أفراد الأسرة مطلوب", true); false }
+            password.isEmpty()        -> { showSnackBar("كلمة المرور مطلوبة", true); false }
+            password.length < 6       -> { showSnackBar("كلمة المرور يجب أن تكون 6 أحرف على الأقل", true); false }
             else -> true
         }
     }

@@ -1,13 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:tools="http://schemas.android.com/tools">
-    <!-- Base application theme. -->
+
     <style name="Base.Theme.Nagda" parent="Theme.Material3.DayNight.NoActionBar">
         <item name="android:statusBarColor">@android:color/white</item>
         <item name="android:windowLightStatusBar">true</item>
         <item name="android:fontFamily">@font/notokufi_arabic_medium</item>
         <item name="fontFamily">@font/notokufi_arabic_medium</item>
-        <item name="android:windowSplashScreenAnimatedIcon">@android:color/transparent</item>
+        <item name="android:windowSplashScreenAnimatedIcon">@android:color/transparent
+        </item>
         <item name="android:windowSplashScreenAnimationDuration">0</item>
-        <item name="android:windowOptOutEdgeToEdgeEnforcement" >true</item>
+        <item name="android:windowOptOutEdgeToEdgeEnforcement" >true
+        </item>
     </style>
-    <style name="Theme.Nagda" parent="Base.Theme.Nagda" />
 </resources>

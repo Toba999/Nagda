@@ -41,9 +41,46 @@ class FireBaseRepoImpl @Inject constructor(
 
             val snapshot = usersCollection.document(uid).get().await()
             val user = snapshot.toObject(UserModel::class.java)
-                ?: return Result.failure(Exception("User not found"))
+                ?: return Result.failure(Exception("المستخدم غير موجود"))
 
             Result.success(user)
+        } catch (e: Exception) {
+            Result.failure(e)
+        }
+    }
+
+    override suspend fun getProfile(): Result<UserModel> {
+        return try {
+            val uid = auth.currentUser?.uid
+                ?: return Result.failure(Exception("المستخدم غير مسجل الدخول"))
+
+            val user = usersCollection.document(uid).get().await()
+                .toObject(UserModel::class.java)
+                ?: return Result.failure(Exception("المستخدم غير موجود"))
+
+            Result.success(user)
+        } catch (e: Exception) {
+            Result.failure(e)
+        }
+    }
+
+    override suspend fun updateProfile(user: UserModel): Result<Unit> {
+        return try {
+            val uid = auth.currentUser?.uid
+                ?: return Result.failure(Exception("المستخدم غير مسجل الدخول"))
+
+            usersCollection.document(uid).update(
+                mapOf(
+                    "fullName"   to user.fullName,
+                    "phone"      to user.phone,
+                    "address"    to user.address,
+                    "mail"       to user.mail,
+                    "familySize" to user.familySize,
+                    "notes"      to user.notes
+                )
+            ).await()
+
+            Result.success(Unit)
         } catch (e: Exception) {
             Result.failure(e)
         }

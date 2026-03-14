@@ -23,6 +23,7 @@ class RegisterViewModel @Inject constructor(
     fun register(
         fullName: String,
         phone: String,
+        mail: String,
         address: String,
         familySize: Int,
         notes: String,
@@ -31,11 +32,12 @@ class RegisterViewModel @Inject constructor(
         viewModelScope.launch {
             _registerState.value = RegisterState.Loading
             val user = UserModel(
-                fullName = fullName,
-                phone = phone,
-                address = address,
+                fullName   = fullName,
+                phone      = phone,
+                mail       = mail,
+                address    = address,
                 familySize = familySize,
-                notes = notes
+                notes      = notes
             )
             repo.register(user, password)
                 .onSuccess { _registerState.value = RegisterState.Success }

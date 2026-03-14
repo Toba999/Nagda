@@ -13,6 +13,7 @@ import com.dev.nagda.MainActivity
 import com.dev.nagda.R
 import com.dev.nagda.databinding.FragmentSafetyGuideBinding
 import dagger.hilt.android.AndroidEntryPoint
+import androidx.core.net.toUri
 
 
 @AndroidEntryPoint
@@ -70,7 +71,7 @@ class SafetyGuideFragment : Fragment() {
     }
 
     private fun dialNumber(number: String) {
-        startActivity(Intent(Intent.ACTION_DIAL, Uri.parse("tel:$number")))
+        startActivity(Intent(Intent.ACTION_DIAL, "tel:$number".toUri()))
     }
 
     override fun onDestroyView() {

@@ -16,6 +16,11 @@
         android:name="com.dev.nagda.features.safetyGuide.view.SafetyGuideFragment"
         android:label="SafetyGuideFragment" />
 
+    <fragment
+        android:id="@+id/profileFragment"
+        android:name="com.dev.nagda.features.profile.view.ProfileFragment"
+        android:label="ProfileFragment" />
+
 
     <!--    <dialog-->
 <!--        android:id="@+id/successDialogFragment"-->
