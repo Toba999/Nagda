@@ -36,4 +36,6 @@
     <string name="signOut">تسجيل الخروج</string>
     <string name="family_info">معلومات العائلة</string>
     <string name="personal_profile">الملف الشخصي</string>
+    <string name="more">المزيد</string>
+    <string name="details">التفاصيل</string>
 </resources>
