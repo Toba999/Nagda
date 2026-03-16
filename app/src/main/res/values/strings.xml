@@ -55,4 +55,6 @@
     <string name="request_details_title">تفاصيل البلاغ</string>
     <string name="select_request_type">اختر نوع البلاغ</string>
     <string name="Sos_text">زر الاستغاثة</string>
+    <string name="add_details">أضف التفاصيل</string>
+    <string name="add_location">أضف الموقع</string>
 </resources>

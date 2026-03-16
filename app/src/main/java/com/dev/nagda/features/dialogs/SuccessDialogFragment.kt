@@ -39,7 +39,7 @@ class SuccessDialogFragment : DialogFragment() {
     override fun onStart() {
         super.onStart()
         dialog?.window?.apply {
-            val margin = 40
+            val margin = 100
             val displayMetrics = context.resources.displayMetrics
             val screenWidth = displayMetrics.widthPixels
             setLayout(screenWidth - (margin * 2), ViewGroup.LayoutParams.WRAP_CONTENT)

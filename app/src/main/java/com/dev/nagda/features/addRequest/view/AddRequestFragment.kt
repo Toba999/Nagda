@@ -65,7 +65,6 @@ class AddRequestFragment : Fragment() {
         binding.locationCard.setOnClickListener {
             findNavController().navigate(R.id.mapFragment)
         }
-        binding.tvChange.isVisible = !address.isNullOrEmpty()
         binding.btnSend.setOnClickListener {
             val type = selectedType
             if (type == null) {
@@ -77,6 +76,8 @@ class AddRequestFragment : Fragment() {
             val request = RequestModel(
                 type = type,
                 location = address ?: "",
+                latitude = latitude ?: 0.0,
+                longitude = longitude ?: 0.0,
                 details = binding.etDetails.text.toString().trim()
             )
             viewModel.sendRequest(request)
@@ -89,6 +90,7 @@ class AddRequestFragment : Fragment() {
             longitude = bundle.getDouble("longitude")
             address = bundle.getString("address")
             binding.tvLocation.text = address
+            binding.tvChange.isVisible = !address.isNullOrEmpty()
         }
     }
 

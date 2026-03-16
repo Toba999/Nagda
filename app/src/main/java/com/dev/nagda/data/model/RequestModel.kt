@@ -7,5 +7,7 @@ data class RequestModel(
     val status: RequestStatus = RequestStatus.SENT,
     val location: String = "",
     val details: String = "",
+    val longitude: Double = 0.0,
+    val latitude: Double = 0.0,
     val createdAt: Long = System.currentTimeMillis()
 )
