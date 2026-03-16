@@ -1,5 +1,6 @@
 package com.dev.nagda.domain.repo
 
+import com.dev.nagda.data.model.RequestModel
 import com.dev.nagda.data.model.UserModel
 
 
@@ -8,4 +9,6 @@ interface FireBaseRepo {
     suspend fun login(phone: String, password: String): Result<UserModel>
     suspend fun getProfile(): Result<UserModel>
     suspend fun updateProfile(user: UserModel): Result<Unit>
+    suspend fun sendRequest(request: RequestModel): Result<Unit>
+    suspend fun getUserRequests(): Result<List<RequestModel>>
 }

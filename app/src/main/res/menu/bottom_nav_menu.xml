@@ -6,7 +6,7 @@
         android:title="@string/profile" />
 
     <item
-        android:id="@+id/excuseFragment"
+        android:id="@+id/requestsFragment"
         android:icon="@drawable/ic_request"
         android:title="@string/requests" />
 

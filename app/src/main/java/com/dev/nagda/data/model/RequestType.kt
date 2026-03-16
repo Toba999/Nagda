@@ -1,4 +1,4 @@
-package com.dev.nagda.features.requests.model
+package com.dev.nagda.data.model
 
 import com.dev.nagda.R
 

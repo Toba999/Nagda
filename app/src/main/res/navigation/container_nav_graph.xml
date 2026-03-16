@@ -20,6 +20,11 @@
         android:id="@+id/profileFragment"
         android:name="com.dev.nagda.features.profile.view.ProfileFragment"
         android:label="ProfileFragment" />
+    <fragment
+        android:id="@+id/requestsFragment"
+        android:name="com.dev.nagda.features.requests.view.RequestsFragment"
+        android:label="fragment_requests"
+        tools:layout="@layout/fragment_requests" />
 
 
     <!--    <dialog-->

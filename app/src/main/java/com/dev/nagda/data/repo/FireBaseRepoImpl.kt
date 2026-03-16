@@ -1,9 +1,11 @@
 package com.dev.nagda.data.repo
 
+import com.dev.nagda.data.model.RequestModel
 import com.dev.nagda.data.model.UserModel
 import com.dev.nagda.domain.repo.FireBaseRepo
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.firestore.Query
 import kotlinx.coroutines.tasks.await
 import javax.inject.Inject
 
@@ -13,6 +15,7 @@ class FireBaseRepoImpl @Inject constructor(
 
     private val auth = FirebaseAuth.getInstance()
     private val usersCollection = firestore.collection("users")
+    private val requestsCollection = firestore.collection("requests")
 
     override suspend fun register(user: UserModel, password: String): Result<Unit> {
         return try {
@@ -81,6 +84,43 @@ class FireBaseRepoImpl @Inject constructor(
             ).await()
 
             Result.success(Unit)
+        } catch (e: Exception) {
+            Result.failure(e)
+        }
+    }
+
+    override suspend fun sendRequest(request: RequestModel): Result<Unit> {
+        return try {
+            val uid = auth.currentUser?.uid
+                ?: return Result.failure(Exception("المستخدم غير مسجل الدخول"))
+
+            val docRef = requestsCollection.document()
+            val requestWithIds = request.copy(
+                id  = docRef.id,
+                uid = uid
+            )
+            docRef.set(requestWithIds).await()
+            Result.success(Unit)
+        } catch (e: Exception) {
+            Result.failure(e)
+        }
+    }
+
+    override suspend fun getUserRequests(): Result<List<RequestModel>> {
+        return try {
+            val uid = auth.currentUser?.uid
+                ?: return Result.failure(Exception("المستخدم غير مسجل الدخول"))
+
+            val snapshot = requestsCollection
+                .whereEqualTo("uid", uid)
+                .orderBy("createdAt", Query.Direction.DESCENDING)
+                .get()
+                .await()
+
+            val requests = snapshot.documents.mapNotNull { doc ->
+                doc.toObject(RequestModel::class.java)
+            }
+            Result.success(requests)
         } catch (e: Exception) {
             Result.failure(e)
         }

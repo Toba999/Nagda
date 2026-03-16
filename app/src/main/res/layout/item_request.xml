@@ -17,7 +17,7 @@
         android:padding="12dp">
 
         <androidx.cardview.widget.CardView
-            android:id="@+id/tvStatus"
+            android:id="@+id/statusContainer"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:backgroundTint="@color/status_sent"
@@ -26,6 +26,7 @@
             app:layout_constraintTop_toTopOf="parent">
 
             <TextView
+                android:id="@+id/tvStatus"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/notokufi_arabic_semibold"
