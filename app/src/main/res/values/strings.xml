@@ -40,4 +40,12 @@
     <string name="details">التفاصيل</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="signout_msg">هل أنت متأكد من أنك تريد تسجيل الخروج</string>
+    <string name="cancel">إلغاء</string>
+    <string name="yes">نعم</string>
+    <string name="done">تم</string>
+    <string name="rescue_team_msg">فريق الانقاذ ف الطريق اليك</string>
+    <string name="request_sent">تم ارسال البلاغ بنجاح</string>
+    <string name="view_request">عرض حالة البلاغ</string>
+    <string name="select_location">تحديد المكان</string>
 </resources>

@@ -99,7 +99,7 @@ class ProfileFragment : Fragment() {
                 getColor(requireContext(), R.color.primary)
             )
             binding.btnSave.setOnClickListener {
-                viewModel.signOut()
+                findNavController().navigate(R.id.logoutDialogFragment)
             }
         }
 

@@ -52,19 +52,6 @@ class ProfileViewModel @Inject constructor(
         }
     }
 
-    fun signOut() {
-        viewModelScope.launch {
-            _signOutState.value = SignOutState.Loading
-            try {
-                FirebaseAuth.getInstance().signOut()
-                sharedPrefManager.clearAll()
-                _signOutState.value = SignOutState.Success
-            } catch (e: Exception) {
-                _signOutState.value = SignOutState.Error(e.message ?: "حدث خطأ")
-            }
-        }
-    }
-
     fun resetUpdateState() { _updateState.value = UpdateState.Idle }
     fun resetSignOutState() { _signOutState.value = SignOutState.Idle }
 }

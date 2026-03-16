@@ -27,34 +27,34 @@
         tools:layout="@layout/fragment_requests" />
 
 
-    <!--    <dialog-->
-<!--        android:id="@+id/successDialogFragment"-->
-<!--        android:name="com.dev.dwamy.features.dialogs.SuccessDialogFragment"-->
-<!--        android:label="Success Dialog"-->
-<!--        tools:layout="@layout/fragment_success_dialog"-->
-<!--        android:theme="@style/Theme.MaterialComponents.Light.Dialog.Alert">-->
-<!--        <argument-->
-<!--            android:name="title"-->
-<!--            app:argType="string"-->
-<!--            android:defaultValue="تم تقديم الطلب بنجاح"/>-->
-<!--        <argument-->
-<!--            android:name="icon"-->
-<!--            app:argType="string"-->
-<!--            android:defaultValue="0"/>-->
-<!--    </dialog>-->
+        <dialog
+        android:id="@+id/successDialogFragment"
+        android:name="com.dev.nagda.features.dialogs.SuccessDialogFragment"
+        android:label="Success Dialog"
+        tools:layout="@layout/fragment_success_dialog"
+        android:theme="@style/Theme.MaterialComponents.Light.Dialog.Alert">
+        <argument
+            android:name="title"
+            app:argType="string"
+            android:defaultValue="تم تقديم الطلب بنجاح"/>
+        <argument
+            android:name="icon"
+            app:argType="string"
+            android:defaultValue="0"/>
+    </dialog>
 
-<!--    <dialog-->
-<!--        android:id="@+id/logoutDialogFragment"-->
-<!--        android:name="com.dev.dwamy.features.dialogs.LogoutDialogFragment"-->
-<!--        android:label="Logout Dialog"-->
-<!--        tools:layout="@layout/fragment_logout_dialog"-->
-<!--        android:theme="@style/Theme.MaterialComponents.Light.Dialog.Alert">-->
-<!--        <action-->
-<!--            android:id="@+id/action_logoutDialogFragment_to_LoginFragment"-->
-<!--            app:destination="@id/LoginFragment"-->
-<!--            app:popUpTo="@id/containerFragment"-->
-<!--            app:popUpToInclusive="true"/>-->
-<!--    </dialog>-->
+    <dialog
+        android:id="@+id/logoutDialogFragment"
+        android:name="com.dev.nagda.features.dialogs.LogoutDialogFragment"
+        android:label="Logout Dialog"
+        tools:layout="@layout/fragment_logout_dialog"
+        android:theme="@style/Theme.MaterialComponents.Light.Dialog.Alert">
+        <action
+            android:id="@+id/action_logoutDialogFragment_to_LoginFragment"
+            app:destination="@id/LoginFragment"
+            app:popUpTo="@id/containerFragment"
+            app:popUpToInclusive="true"/>
+    </dialog>
 
 
 </navigation>

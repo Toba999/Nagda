@@ -1,6 +1,7 @@
 package com.dev.nagda.features.safetyGuide.view
 
 import android.R.attr.divider
+import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
@@ -17,6 +18,7 @@ class SafetyTipAdapter(private val items: List<SafetyTip>) :
             LayoutInflater.from(parent.context), parent, false
         ))
 
+    @SuppressLint("SetTextI18n")
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val item = items[position]
         with(holder.binding) {
