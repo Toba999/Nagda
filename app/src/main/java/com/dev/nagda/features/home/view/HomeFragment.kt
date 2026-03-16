@@ -58,6 +58,9 @@ class HomeFragment : Fragment() {
             val intent = Intent(Intent.ACTION_DIAL, "tel:998".toUri())
             startActivity(intent)
         }
+        binding.btnSOS.setOnClickListener {
+            findNavController().navigate(R.id.addRequestFragment)
+        }
         binding.btnSafety.setOnClickListener {
             findNavController().navigate(R.id.safetyGuideFragment)
         }

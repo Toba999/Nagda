@@ -55,6 +55,14 @@
             app:popUpTo="@id/containerFragment"
             app:popUpToInclusive="true"/>
     </dialog>
+    <fragment
+        android:id="@+id/addRequestFragment"
+        android:name="com.dev.nagda.features.addRequest.view.AddRequestFragment"
+        android:label="AddRequestFragment" />
+    <fragment
+        android:id="@+id/mapFragment"
+        android:name="com.dev.nagda.features.mapScreen.MapFragment"
+        android:label="MapFragment" />
 
 
 </navigation>

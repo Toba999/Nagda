@@ -21,4 +21,5 @@
     <color name="status_on_the_way">#E67E22</color>
     <color name="status_done">#1A2D6D</color>
     <color name="status_cancelled">#95A5A6</color>
+    <color name="status_inactive">#CBD4DC</color>
 </resources>

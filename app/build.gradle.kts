@@ -46,6 +46,7 @@ android {
     buildFeatures {
         viewBinding = true
     }
+    useLibrary("org.apache.http.legacy")
 }
 
 dependencies {
