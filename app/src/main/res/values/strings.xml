@@ -57,4 +57,7 @@
     <string name="Sos_text">زر الاستغاثة</string>
     <string name="add_details">أضف التفاصيل</string>
     <string name="add_location">أضف الموقع</string>
+    <string name="request_status">حالة البلاغ</string>
+    <string name="back_to_home">العودة للرئيسية</string>
+    <string name="cancel_request">إلغاء البلاغ</string>
 </resources>

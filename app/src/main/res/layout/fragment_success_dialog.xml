@@ -55,7 +55,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
             android:paddingHorizontal="36dp"
-            android:text="@string/view_request"
+            android:text="@string/back_to_home"
             android:textColor="@color/white"
             android:textStyle="bold"
             app:backgroundTint="@color/primary"

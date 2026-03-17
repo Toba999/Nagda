@@ -63,6 +63,11 @@
         android:id="@+id/mapFragment"
         android:name="com.dev.nagda.features.mapScreen.MapFragment"
         android:label="MapFragment" />
+    <fragment
+        android:id="@+id/requestDetailsFragment"
+        android:name="com.dev.nagda.features.requestDetails.view.RequestDetailsFragment"
+        android:label="fragment_request_details"
+        tools:layout="@layout/fragment_request_details" />
 
 
 </navigation>

@@ -10,7 +10,7 @@ import com.dev.nagda.databinding.ItemRequestBinding
 
 class RequestsAdapter(
     private var items: List<RequestModel>,
-    private val onMoreClick: (RequestModel) -> Unit
+    private val onMoreClick: (String) -> Unit
 ) : RecyclerView.Adapter<RequestsAdapter.ViewHolder>() {
 
     class ViewHolder(val binding: ItemRequestBinding) :
@@ -34,7 +34,7 @@ class RequestsAdapter(
             tvType.text = item.type.label
             ivTypeIcon.setImageResource(item.type.iconRes)
             tvDetails.text = item.details
-            tvMore.setOnClickListener { onMoreClick(item) }
+            tvMore.setOnClickListener { onMoreClick(item.id) }
         }
     }
 

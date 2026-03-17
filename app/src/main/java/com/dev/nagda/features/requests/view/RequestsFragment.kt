@@ -8,6 +8,7 @@ import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.dev.nagda.R
 import com.dev.nagda.databinding.FragmentRequestsBinding
@@ -41,8 +42,9 @@ class RequestsFragment : Fragment() {
     }
 
     private fun setupRecyclerView() {
-        adapter = RequestsAdapter(emptyList()) { request ->
-            // handle more click - navigate to details
+        adapter = RequestsAdapter(emptyList()) { id ->
+            val bundle = Bundle().apply { putString("requestId", id) }
+            findNavController().navigate(R.id.requestDetailsFragment, bundle)
         }
         binding.rvRequests.apply {
             layoutManager = LinearLayoutManager(requireContext())

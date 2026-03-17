@@ -8,6 +8,8 @@ import android.view.ViewGroup
 import android.view.WindowManager
 import androidx.core.graphics.drawable.toDrawable
 import androidx.fragment.app.DialogFragment
+import androidx.navigation.fragment.findNavController
+import com.dev.nagda.R
 import com.dev.nagda.databinding.FragmentSuccessDialogBinding
 
 class SuccessDialogFragment : DialogFragment() {
@@ -28,7 +30,7 @@ class SuccessDialogFragment : DialogFragment() {
 
         binding.btnOk.setOnClickListener {
             dismiss()
-//            findNavController().popBackStack(R.id.homeFragment,false)
+            findNavController().popBackStack(R.id.homeFragment,false)
         }
 
         binding.ivClose.setOnClickListener {
@@ -45,7 +47,7 @@ class SuccessDialogFragment : DialogFragment() {
             setLayout(screenWidth - (margin * 2), ViewGroup.LayoutParams.WRAP_CONTENT)
             setBackgroundDrawable(Color.TRANSPARENT.toDrawable())
             val layoutParams = attributes
-            layoutParams.dimAmount = 0.6f
+            layoutParams.dimAmount = 0.5f
             attributes = layoutParams
             addFlags(WindowManager.LayoutParams.FLAG_DIM_BEHIND)
         }

@@ -11,4 +11,6 @@ interface FireBaseRepo {
     suspend fun updateProfile(user: UserModel): Result<Unit>
     suspend fun sendRequest(request: RequestModel): Result<Unit>
     suspend fun getUserRequests(): Result<List<RequestModel>>
+    suspend fun getRequestDetails(requestId: String): Result<RequestModel>
+    suspend fun cancelRequest(requestId: String): Result<Unit>
 }

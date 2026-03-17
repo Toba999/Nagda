@@ -1,6 +1,7 @@
 package com.dev.nagda.data.repo
 
 import com.dev.nagda.data.model.RequestModel
+import com.dev.nagda.data.model.RequestStatus
 import com.dev.nagda.data.model.UserModel
 import com.dev.nagda.domain.repo.FireBaseRepo
 import com.google.firebase.auth.FirebaseAuth
@@ -121,6 +122,27 @@ class FireBaseRepoImpl @Inject constructor(
                 doc.toObject(RequestModel::class.java)
             }
             Result.success(requests)
+        } catch (e: Exception) {
+            Result.failure(e)
+        }
+    }
+    override suspend fun getRequestDetails(requestId: String): Result<RequestModel> {
+        return try {
+            val snapshot = requestsCollection.document(requestId).get().await()
+            val request = snapshot.toObject(RequestModel::class.java)
+                ?: return Result.failure(Exception("البلاغ غير موجود"))
+            Result.success(request)
+        } catch (e: Exception) {
+            Result.failure(e)
+        }
+    }
+
+    override suspend fun cancelRequest(requestId: String): Result<Unit> {
+        return try {
+            requestsCollection.document(requestId)
+                .update("status", RequestStatus.CANCELLED.name)
+                .await()
+            Result.success(Unit)
         } catch (e: Exception) {
             Result.failure(e)
         }
