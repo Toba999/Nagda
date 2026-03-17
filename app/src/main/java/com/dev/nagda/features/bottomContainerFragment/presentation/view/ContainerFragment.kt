@@ -57,7 +57,10 @@ class ContainerFragment : Fragment() {
 
         navController.addOnDestinationChangedListener { _, destination, _ ->
             when (destination.id) {
-                R.id.safetyGuideFragment,R.id.mapFragment,R.id.addRequestFragment -> {
+                R.id.safetyGuideFragment,
+                R.id.mapFragment,
+                R.id.addRequestFragment,
+                R.id.requestDetailsFragment -> {
                     binding.bottomNavView.visibility = View.GONE
                 }
                 else -> {

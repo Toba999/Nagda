@@ -84,10 +84,9 @@ class RequestDetailsFragment : Fragment() {
             val (title, desc) = request.status.bannerContent()
             tvStatusTitle.text = title
             tvStatusDesc.text  = desc
-            statusBanner.setBackgroundColor(
-                ContextCompat.getColor(requireContext(), request.status.colorRes)
+            statusBanner.backgroundTintList = ColorStateList.valueOf(
+                ContextCompat.getColor(root.context, request.status.colorRes)
             )
-
             tvLocation.text = request.location
             tvType.text     = request.type.label
             tvDetails.text  = request.details.ifEmpty { "لا توجد تفاصيل" }
