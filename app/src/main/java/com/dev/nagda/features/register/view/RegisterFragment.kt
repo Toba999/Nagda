@@ -1,6 +1,7 @@
 package com.dev.nagda.features.register.view
 
 import android.os.Bundle
+import android.text.Editable
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -26,7 +27,9 @@ class RegisterFragment : Fragment() {
     private val viewModel: RegisterViewModel by viewModels()
     private var _binding: FragmentRegisterBinding? = null
     private val binding get() = _binding!!
-
+    private var latitude : Double? = null
+    private var longitude : Double? = null
+    private var address : String? = null
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -39,11 +42,16 @@ class RegisterFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         setupListeners()
         observeViewModel()
+        observeLocation()
     }
 
     private fun setupListeners() {
         binding.registerBackBtn.setOnClickListener {
             findNavController().popBackStack()
+        }
+
+        binding.etAddress.setOnClickListener {
+            findNavController().navigate(R.id.mapFragmentAuth)
         }
 
         binding.registerButton.setOnClickListener {
@@ -105,6 +113,14 @@ class RegisterFragment : Fragment() {
         }
     }
 
+    private fun observeLocation() {
+        parentFragmentManager.setFragmentResultListener("locationRequestKey", viewLifecycleOwner) { _, bundle ->
+            latitude  = bundle.getDouble("latitude")
+            longitude = bundle.getDouble("longitude")
+            address   = bundle.getString("address")
+            binding.etAddress.setText(address)
+        }
+    }
     private fun navigateToLogin() {
         showLoading(false)
         showSnackBar("تم إنشاء الحساب بنجاح", false)

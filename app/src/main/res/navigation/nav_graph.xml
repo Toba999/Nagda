@@ -29,5 +29,9 @@
         android:id="@+id/containerFragment"
         android:name="com.dev.nagda.features.bottomContainerFragment.presentation.view.ContainerFragment"
         android:label="ContainerFragment" />
+    <fragment
+        android:id="@+id/mapFragmentAuth"
+        android:name="com.dev.nagda.features.mapScreen.MapFragment"
+        android:label="MapFragment" />
 
 </navigation>
