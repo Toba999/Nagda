@@ -33,7 +33,7 @@ class RequestDetailsViewModel @Inject constructor(
     fun cancelRequest(requestId: String) {
         viewModelScope.launch {
             repo.cancelRequest(requestId)
-                .onSuccess { getRequestDetails(requestId) } // refresh
+                .onSuccess { getRequestDetails(requestId) }
                 .onFailure { _detailsState.value = RequestDetailsState.Error(
                     it.message ?: "حدث خطأ") }
         }
