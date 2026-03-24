@@ -83,6 +83,8 @@ class ProfileFragment : Fragment() {
             )
             binding.btnSave.setOnClickListener {
                 if (!validateInputs()) return@setOnClickListener
+                binding.tvProfileName.text = binding.etName.text.toString().trim()
+                binding.tvProfilePhone.text = binding.etPhone.text.toString().trim()
                 val user = UserModel(
                     fullName   = binding.etName.text.toString().trim(),
                     phone      = binding.etPhone.text.toString().trim(),

@@ -29,10 +29,12 @@ class AddRequestFragment : Fragment() {
     private val binding get() = _binding!!
     private val viewModel: AddRequestViewModel by viewModels()
 
-    private var selectedType: RequestType? = null
-    private var latitude : Double? = null
-    private var longitude : Double? = null
-    private var address : String? = null
+    private lateinit var typeAdapter: RequestTypeAdapter
+
+    private var latitude: Double? = null
+    private var longitude: Double? = null
+    private var address: String? = null
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -51,12 +53,14 @@ class AddRequestFragment : Fragment() {
     }
 
     private fun setupTypeGrid() {
+        typeAdapter = RequestTypeAdapter(RequestType.entries) { type ->
+            selectedType = type
+        }
         binding.rvTypes.apply {
             layoutManager = GridLayoutManager(requireContext(), 4)
-            adapter = RequestTypeAdapter(RequestType.entries) { type ->
-                selectedType = type
-            }
+            adapter = typeAdapter
         }
+        typeAdapter.setSelected(selectedType ?: RequestType.ACCIDENT)
     }
 
     private fun setupListeners() {
@@ -127,5 +131,9 @@ class AddRequestFragment : Fragment() {
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
+    }
+
+    companion object{
+        var selectedType: RequestType? = null
     }
 }

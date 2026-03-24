@@ -2,6 +2,7 @@ package com.dev.nagda.features.addRequest.view
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.core.content.ContextCompat
 import androidx.core.view.isVisible
 import androidx.recyclerview.widget.RecyclerView
 import com.dev.nagda.R
@@ -10,11 +11,10 @@ import com.dev.nagda.databinding.ItemRequestTypeBinding
 
 class RequestTypeAdapter(
     private val items: List<RequestType>,
-    private val onTypeSelected: (RequestType) -> Unit
+    val onTypeSelected: (RequestType) -> Unit
 ) : RecyclerView.Adapter<RequestTypeAdapter.ViewHolder>() {
 
-    private var selectedType: RequestType? = null
-
+    private var selectedType: RequestType? = items.firstOrNull()
     class ViewHolder(val binding: ItemRequestTypeBinding) :
         RecyclerView.ViewHolder(binding.root)
 
@@ -35,6 +35,10 @@ class RequestTypeAdapter(
                 if (isSelected) R.drawable.circle_request_type
                 else R.drawable.circle_gray_bg
             )
+            ivIcon.imageTintList = ContextCompat.getColorStateList(
+                holder.itemView.context,
+                if (isSelected) R.color.white else R.color.status_inactive
+            )
 
             root.setOnClickListener {
                 selectedType = type
@@ -43,6 +47,9 @@ class RequestTypeAdapter(
             }
         }
     }
-
+    fun setSelected(type: RequestType?) {
+        selectedType = type
+        notifyDataSetChanged()
+    }
     override fun getItemCount() = items.size
 }

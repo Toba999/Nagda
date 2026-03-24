@@ -13,8 +13,4 @@ import javax.inject.Inject
 class HomeViewModel @Inject constructor(private val firebaseRepository: FireBaseRepo) : ViewModel() {
     private val _homeState = MutableStateFlow<HomeState>(HomeState.Idle)
     val homeState: StateFlow<HomeState> = _homeState
-
-
-
-
 }
