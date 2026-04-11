@@ -114,7 +114,6 @@ class FireBaseRepoImpl @Inject constructor(
 
             val snapshot = requestsCollection
                 .whereEqualTo("uid", uid)
-                .orderBy("createdAt", Query.Direction.DESCENDING)
                 .get()
                 .await()
 
