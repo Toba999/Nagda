@@ -1,13 +1,13 @@
 {
   "project_info": {
-    "project_number": "700975757842",
-    "project_id": "nagda2-a0591",
-    "storage_bucket": "nagda2-a0591.firebasestorage.app"
+    "project_number": "32617637294",
+    "project_id": "nagda-new",
+    "storage_bucket": "nagda-new.firebasestorage.app"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:700975757842:android:c036a91f15476faa1636cb",
+        "mobilesdk_app_id": "1:32617637294:android:56fe9b912144ec6da4543f",
         "android_client_info": {
           "package_name": "com.dev.nagda"
         }
@@ -15,7 +15,7 @@
       "oauth_client": [],
       "api_key": [
         {
-          "current_key": "AIzaSyD5ekJs8PWf0jOJCycgjF3umfV57-S4nDo"
+          "current_key": "AIzaSyAmsD2i905efdlZ8CnW2GwuQhc5oburxeI"
         }
       ],
       "services": {
